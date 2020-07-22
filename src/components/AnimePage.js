@@ -12,6 +12,7 @@ export default function AnimePage({anime}) {
                     <ul>
                         <li><strong>Episodes:</strong> {anime.episodes}</li>
                         <li><strong>Score:</strong> {anime.score}</li>
+                        <li><strong>Source:</strong> {anime.source}</li>
                         <li><strong>MyAnimeList <a href={anime.url}><i className="fas fa-external-link-alt"></i></a></strong></li>
                     </ul>
                 </div>

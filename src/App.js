@@ -6,12 +6,13 @@ import AnimeList from './components/AnimeList';
 
 function App() {
 const [animeList,setAnimeList] = useState([])
-const [page,setPage] = useState(1)
+const[genre,setGenre] = useState(9)
+const [page,setPage] = useState(2)
 
 
 useEffect(()=>{
   const fetchAnime =async()=>{
-    const responce = await axios.get(`https://api.jikan.moe/v3/genre/anime/9/${page}`)
+    const responce = await axios.get(`https://api.jikan.moe/v3/genre/anime/${genre}/${page}`)
     const {anime} =responce.data
     setAnimeList(anime)
     console.log(anime)
@@ -19,7 +20,10 @@ useEffect(()=>{
   fetchAnime()
 },[page])
 
-return (
+const handleGenre =(val)=>{
+  setGenre(val)
+}
+  return (
     <div className="container">
       <Header/>
       <AnimeList animeList={animeList}/>
